@@ -13,9 +13,18 @@ tasks:
   run: 
     cmds:
       - task: build
-      - ./.bin/{{.BINARY_NAME}}
+      - ./.bin/{{.BINARY_NAME}} {{.CLI_ARGS}}
   
   test:
     cmds:
       - task: build
       - go test -v ./...
+  
+  help: 
+    cmds:
+      - task: build
+      - ./.bin/{{.BINARY_NAME}} -h
+
+  h:
+    cmds:
+      - task: help
